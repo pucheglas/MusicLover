@@ -1,5 +1,5 @@
 fun main() {
-    val musicLover = false
+    val musicLover = true
     val discontMusicLover = 1
     val amount = 20000
     val discont0 = 0
@@ -22,10 +22,11 @@ fun main() {
         }
     }
 
-    var amountResult = amount - diskont
-    if (musicLover) {
-        amountResult -= amountResult * discontMusicLover / 100
+    val amountResult = if (musicLover) {
         println("Скидка как меломану: $discontMusicLover%")
+        amount - diskont - (amount - diskont) * discontMusicLover / 100
+    } else {
+        amount - diskont
     }
     println("Итого к оплате $amountResult руб.")
 }
